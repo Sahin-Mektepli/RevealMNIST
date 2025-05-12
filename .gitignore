@@ -1,3 +1,18 @@
 utils
 .idea
 *.egg-info/
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+.venv
+*.sqlite3
+.DS_Store
+
+# VSCode
+.vscode/
+# Ignore raw MNIST data
+/data/MNIST/raw/*
