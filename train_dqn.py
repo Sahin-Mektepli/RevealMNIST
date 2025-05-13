@@ -4,6 +4,7 @@ import numpy as np
 from dqn_agent import DQNAgent 
 from reveal_mnist.envs.reveal_mnist import RevealMNISTEnv
 
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 env = gym.make("RevealMNIST-v0",
@@ -13,8 +14,8 @@ env = gym.make("RevealMNIST-v0",
 
 agent = DQNAgent(state_dim=788, n_actions=env.action_space.n, device=device)
 
-num_episodes = 500
-target_update_freq = 10
+num_episodes = 900
+target_update_freq = 100
 
 env.reset(seed=42)
 np.random.seed(42)
@@ -35,6 +36,7 @@ for episode in range(num_episodes):
 
         state = next_state
         total_reward += reward
+
 
     if episode % target_update_freq == 0:
         agent.update_target_network()
